@@ -49,15 +49,14 @@ const LastActivityTracker = LazyLoad(
 const flexStyle = { flex: 1 };
 
 export function KitProvider(props: any = {}) {
+  if (process.env.NODE_ENV !== 'production') {
+    debugLandingLog('KitProvider render');
+  }
   const {
     UIApplicationLaunchOptionsRemoteNotificationKey: launchNotification,
   } = props;
 
   ColdStartByNotification.launchNotification = launchNotification;
-
-  if (process.env.NODE_ENV !== 'production') {
-    debugLandingLog('KitProvider render');
-  }
 
   useDebugComponentRemountLog({ name: 'KitProvider' });
 

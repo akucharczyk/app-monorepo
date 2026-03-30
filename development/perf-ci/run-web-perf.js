@@ -44,6 +44,7 @@ const {
   waitForMark,
   readSessionMetrics,
 } = require('./lib/session');
+
 const { startStaticServer } = require('./lib/staticServer');
 
 function hasFlag(name) {

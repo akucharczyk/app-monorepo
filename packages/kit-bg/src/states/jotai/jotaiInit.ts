@@ -61,13 +61,11 @@ export async function jotaiInit() {
   if (process.env.NODE_ENV !== 'production') {
     debugLandingLog('jotaiInit start');
   }
-
   // Parallelize: import atoms + preload all storage values at the same time
   const [allAtoms, preloadedStorage] = await Promise.all([
     import('./atoms'),
     preloadAtomStorageValues(),
   ]);
-
   if (process.env.NODE_ENV !== 'production') {
     debugLandingLog('jotaiInit atoms imported & storage preloaded');
   }
@@ -181,13 +179,10 @@ export async function jotaiInit() {
     }),
   );
 
-  if (process.env.NODE_ENV !== 'production') {
-    debugLandingLog('jotaiInit done');
-  }
-
   globalJotaiStorageReadyHandler.resolveReady(true);
 
   if (process.env.NODE_ENV !== 'production') {
+    debugLandingLog('jotaiInit done');
     appGlobals.$$allAtoms = allAtoms;
   }
 

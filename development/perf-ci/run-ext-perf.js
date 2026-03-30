@@ -43,6 +43,7 @@ const {
   readSessionMetrics,
   ensureSessionsDirWritable,
 } = require('./lib/session');
+
 function ensureDirExists(p) {
   fs.mkdirSync(p, { recursive: true });
 }

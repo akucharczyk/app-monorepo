@@ -3,11 +3,11 @@
 import '@onekeyhq/shared/src/polyfills';
 import '@onekeyhq/shared/src/web/index.css';
 import { KitProvider } from '@onekeyhq/kit';
+import { debugLandingLog } from '@onekeyhq/shared/src/performance/init';
 import {
   initSentry,
   withSentryHOC,
 } from '@onekeyhq/shared/src/modules3rdParty/sentry';
-import { debugLandingLog } from '@onekeyhq/shared/src/performance/init';
 import { SentryErrorBoundaryFallback } from '@onekeyhq/kit/src/components/ErrorBoundary';
 
 import {

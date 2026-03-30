@@ -7,6 +7,7 @@ import { I18nManager } from 'react-native';
 import { registerRootComponent } from 'expo';
 
 import '@onekeyhq/shared/src/polyfills';
+
 import { initSentry } from '@onekeyhq/shared/src/modules3rdParty/sentry';
 
 import { ReactNativeDeviceUtils } from '@onekeyfe/react-native-device-utils';
@@ -30,4 +31,5 @@ if (typeof globalThis.nativePerformanceNow === 'function') {
     );
   }
 }
+
 registerRootComponent(App);

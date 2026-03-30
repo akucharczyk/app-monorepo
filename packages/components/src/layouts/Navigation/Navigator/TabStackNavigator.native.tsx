@@ -84,7 +84,7 @@ const extraScreenOptions = {
 const nativeTabScreenOptions = {
   freezeOnBlur: true,
   preventsDefault: false,
-  lazy: false,
+  lazy: true,
 };
 
 export function TabStackNavigator<RouteName extends string>({
