@@ -1,6 +1,5 @@
 /* cspell:words oxlintrc */
 
-
 /**
  * Custom oxlint JS plugin for OneKey-specific lint rules.
  *
