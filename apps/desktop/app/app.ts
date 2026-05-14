@@ -92,6 +92,19 @@ function makeIpcSafeError(error: unknown, fallbackMessage: string): Error {
   return new Error(fallbackMessage);
 }
 
+function makeIpcSafeResult(result: unknown): unknown {
+  try {
+    structuredClone(result);
+    return result;
+  } catch (error) {
+    try {
+      return JSON.parse(JSON.stringify(result));
+    } catch {
+      throw makeIpcSafeError(error, 'DESKTOP_API_CALL returned unsafe result');
+    }
+  }
+}
+
 initSentry();
 
 const isPerfCiMode = process.env.PERF_CI_MODE === '1';
@@ -948,7 +961,7 @@ async function createMainWindow() {
           method,
           params,
         });
-        return result;
+        return makeIpcSafeResult(result);
       } catch (error) {
         logger.error('[DESKTOP_API_CALL] handler failed', {
           module,
